@@ -1,0 +1,30 @@
+<!-- index.html -->
+{% extends "layout.html" %}
+
+{% block title %}Wikistack{% endblock %}
+
+{% block page heading %}<div class="page-header"><h1>{{doc.title}}</h1></div>{% endblock %}
+
+{% block content %}
+	<form action='/update' method='post'>
+		<input type="hidden" name="url_nameUpdate" value="{{doc.url_name}}">
+	  <div class="form-group">
+	    <label for="pageTitleLabel">Page Title</label>
+	    <label type="pageTitle" class="form-control" id="title" name="title" placeholder="New Page Title">{{doc.title|marked}}</label>
+	  </div>
+	  <div class="form-group">
+	    <label for="pageContentLabel">Page Content</label>
+	    <textarea type="pageContent" class="form-control" rows="4" id="body" name="bodyUpdate"placeholder="New Page Content">{{doc.body|marked}}</textarea>
+	  </div>
+		<div class="form-group">
+	  <button type="submit" class="btn btn-default">Update</button>
+		</div>
+	</form>
+	<form action='/delete' method='post'>
+		<input type="hidden" name="url_nameDelete" value="{{doc.url_name}}">
+		<div class="form-group">
+			<button type="submit" class="btn btn-default">Delete</button>
+		</div>
+	</form>
+<!-- {{doc.body|marked}} -->
+{% endblock %}

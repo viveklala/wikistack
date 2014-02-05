@@ -1,0 +1,19 @@
+<!-- index.html -->
+{% extends "layout.html" %}
+
+{% block title %}Wikistack{% endblock %}
+
+{% block page heading %}<div class="page-header"><h1>Browse My Wikistack</h1></div>{% endblock %}
+
+{% block content %}
+  <p>We are a cool startup that are making a Node.js wiki that supports Markdown!</p>
+  {% if docs.length>0 %}
+    <ul>
+      {% for doc in docs %}
+        <li>{{doc|page_link}}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    There are no pages. Why don't you <a href='/add'>add one</a>?
+  {% endif %}
+{% endblock %}

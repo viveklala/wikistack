@@ -1,0 +1,21 @@
+<!-- index.html -->
+{% extends "layout.html" %}
+
+{% block title %}Wikistack{% endblock %}
+
+{% block page heading %}<div class="page-header"><h1>Add a Page</h1></div>{% endblock %}
+
+{% block content %}
+	<form action='/add_page' method='post'>
+	  <div class="form-group">
+	    <label for="pageTitleLabel">Page Title</label>
+	    <input type="pageTitle" class="form-control" id="title" name="title" placeholder="New Page Title">
+	  </div>
+	  <div class="form-group">
+	    <label for="pageContentLabel">Page Content</label>
+	    <textarea type="pageContent" class="form-control" rows="4" id="body" name="body"placeholder="New Page Content"></textarea>
+	  </div>
+
+	  <button type="submit" class="btn btn-default">Submit</button>
+	</form>
+{% endblock %}
