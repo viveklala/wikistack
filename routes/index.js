@@ -8,7 +8,7 @@ var models = require('../models/')
 exports.index = function(req, res){
 	var models = require('../models/')
 	models.Page.find(function(err, docs){
-		res.render('index', { docs: docs });
+		res.render('index', { pages: docs });
 	})
 };
 
@@ -16,10 +16,9 @@ exports.show = function(req, res){
 
 	var url_name = req.params.url_name;
 
-	models.Page.find({url_name: url_name}, function(err, docs){
-		var doc = docs[0];
-		res.render('show', { doc: doc } );
-	})
+	models.Page.findOne({"url_name":url_name}, function(err, docs) {
+		res.render('show', {"pages":docs});
+	});
 };
 
 exports.add = function(req,res) {

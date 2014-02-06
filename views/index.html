@@ -7,10 +7,10 @@
 
 {% block content %}
   <p>We are a cool startup that are making a Node.js wiki that supports Markdown!</p>
-  {% if docs.length>0 %}
+  {% if pages.length>0 %}
     <ul>
-      {% for doc in docs %}
-        <li>{{doc|page_link}}</li>
+      {% for c in pages %}
+        <li>{{c|page_link}}</li>
       {% endfor %}
     </ul>
   {% else %}

@@ -9,11 +9,11 @@
 	<form action='/update' method='post'>
 		<input type="hidden" name="url_nameUpdate" value="{{pages.url_name}}">
 	  <div class="form-group">
-	    <label for="pageContentLabel">Page Content</label>
-			{{pages.body|marked}}
+	    <label for="pageTitleLabel">Page Title</label>
+	    <label type="pageTitle" class="form-control" id="title" name="title" placeholder="New Page Title">{{pages.title|marked}}</label>
 	  </div>
 	  <div class="form-group">
-	    <label for="pageContentLabel">Edit Content</label>
+	    <label for="pageContentLabel">Page Content</label>
 	    <textarea type="pageContent" class="form-control" rows="4" id="body" name="bodyUpdate"placeholder="New Page Content">{{pages.body|marked}}</textarea>
 	  </div>
 		<div class="form-group">
